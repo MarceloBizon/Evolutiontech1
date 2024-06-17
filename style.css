@@ -1,3 +1,4 @@
+/* style.css */
 html {
   scroll-behavior: smooth;
 }
@@ -12,12 +13,11 @@ body {
 }
 
 #header {
-  /* background-color: #f8f9fa; */
-  background: url(/img/bg2.png);
+  background: #293334;
   color: #000000;
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 3;
 }
 
 #header .navbar-brand {
@@ -26,7 +26,7 @@ body {
 
   & img {
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 99999px;
   }
   & img:hover {
     box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.25);
@@ -255,7 +255,7 @@ body {
 
 .avatars {
   --avatar-count: 10;
-  --avatar-size: 75px;
+  --avatar-size: 6vw;
 
   --column-size: calc(var(--avatar-size) / 2);
 
@@ -324,6 +324,32 @@ div:has(> .avatar) {
   color: white;
 }
 
-#success, #error {
-  z-index: 9999;
+.toast-success {
+  background-color: #28a745;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.toast-error {
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.toast-warning {
+  background-color: #ffc107;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
 }

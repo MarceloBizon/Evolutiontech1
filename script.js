@@ -1,3 +1,4 @@
+/* script.js */
 "use strict"
 
 
@@ -9,10 +10,15 @@ function initContactForm() {
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault() // Evita o envio padrão do formulário
 
-            sendEmail(); // Chama a função para enviar o email
+            sendEmail() // Chama a função para enviar o email
         })
     }
 }
+
+initContactForm() // Inicializa o formulário de contato
+const toastSuccess = document.getElementById('success')
+const toastError = document.getElementById('error')
+const toastWarning = document.getElementById('warning')
 
 // Função para enviar o email
 function sendEmail() {
@@ -22,7 +28,8 @@ function sendEmail() {
 
     // Verifica se os campos obrigatórios foram preenchidos
     if (!name || !email || !message) {
-        alert('Por favor, preencha todos os campos do formulário.')
+        const warning = bootstrap.Toast.getOrCreateInstance(toastWarning)
+        warning.show()
         return
     }
 
@@ -41,10 +48,12 @@ function sendEmail() {
     // Envia o email usando o serviço de emailjs
     emailjs.send(serviceId, templateId, params)
         .then(() => {
-            alert('Email enviado com sucesso! Obrigado por entrar em contato.')
+            const success = bootstrap.Toast.getOrCreateInstance(toastSuccess)
+            success.show()
         })
         .catch(() => {
-            alert('Erro ao enviar email!')
+            const error = bootstrap.Toast.getOrCreateInstance(toastError)
+            error.show()
         })
 }
 
@@ -54,8 +63,8 @@ const intersectionCallback = (entries) => {
         els.forEach((el, index) => {
             el.hidden = !entry.isIntersecting
             const classList = el.classList
-            const slowClass = `slower-${index+1}`
-            
+            const slowClass = `slower-${index + 1}`
+
             if (!classList.value.includes('slower')) {
                 classList.remove(slowClass)
             } else {
