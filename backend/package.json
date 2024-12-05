@@ -1,0 +1,20 @@
+{
+  "name": "evolutiontech1",
+  "version": "1.0.0",
+  "description": "\"# Evolutiontech1\"",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "emailjs": "^4.0.3",
+    "express": "^4.21.1",
+    "nodemailer": "^6.9.16",
+    "sqlite3": "^5.1.7"
+  }
+}
